@@ -1,14 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-export const getByVersion = async (req, res) => {
+export const getDishes = async (req, res) => {
 	try {
-		const version = req.params.version;
-		const dishes = await prisma.dish.findMany({
-			where: {
-				version: version,
-			},
-		});
+		const dishes = await prisma.dish.findMany();
 		res.status(200).json(dishes);
 	} catch (err) {
 		res.status(500).json({ message: 'Ошибка' });
@@ -17,13 +12,24 @@ export const getByVersion = async (req, res) => {
 
 export const getVersions = async (req, res) => {
 	try {
-		const dishes = await prisma.dish.findMany({
+		const versions = await prisma.dish.findMany({
 			select: {
 				version: true,
 			},
+			distinct: ['version'],
+			orderBy: {
+				version: 'asc',
+			},
 		});
-		res.status(200).json(dishes);
+
+		const response = {
+			version: versions.map((vers) => vers.version),
+		};
+		console.log(versions);
+
+		res.status(200).json(response);
 	} catch (err) {
+		console.log(err);
 		res.status(500).json({ message: 'Ошибка' });
 	}
 };

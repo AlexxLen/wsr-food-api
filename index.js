@@ -7,8 +7,8 @@ const prisma = new PrismaClient();
 const app = express();
 app.use(express.json());
 
-app.get('/dishes/:version', DishController.getByVersion);
-app.get('/dishes', DishController.getVersions);
+app.get('/dishes/version', DishController.getVersions);
+app.get('/dishes', DishController.getDishes);
 
 app.post('/auth/register', UserController.register);
 app.post('/auth/login', UserController.login);
