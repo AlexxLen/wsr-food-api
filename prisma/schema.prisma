@@ -14,7 +14,7 @@ datasource db {
 model Dish {
   dishId String @id @default(auto()) @map("_id") @db.ObjectId
   category String
-  nameDish String
+  name String
   price String
   icon String
   version String
