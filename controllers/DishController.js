@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 export const getDishes = async (req, res) => {
 	try {
 		const dishes = await prisma.dish.findMany();
-		res.status(200).json(dishes);
+		res.status(200).json({ dishes });
 	} catch (err) {
 		res.status(500).json({ message: 'Ошибка' });
 	}
