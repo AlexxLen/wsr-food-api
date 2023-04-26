@@ -17,7 +17,7 @@ export const register = async (req, res) => {
 			{
 				id: user._id,
 			},
-			'wsr-food',
+			'd947f6dbd79d4098388f65da947a1afe',
 			{
 				expiresIn: '7d',
 			},
@@ -58,7 +58,7 @@ export const login = async (req, res) => {
 			{
 				id: user._id,
 			},
-			'wsr-food',
+			'd947f6dbd79d4098388f65da947a1afe',
 			{
 				expiresIn: '7d',
 			},
