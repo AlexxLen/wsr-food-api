@@ -10,6 +10,20 @@ export const getDishes = async (req, res) => {
 	}
 };
 
+export const getDishesByVersion = async (req, res) => {
+	try {
+		const vers = req.params.version;
+		const dishesByVersion = await prisma.dish.findMany({
+			where: {
+				version: vers,
+			},
+		});
+		res.status(200).json(dishesByVersion);
+	} catch (err) {
+		res.status(500).json({ message: 'Ошибка' });
+	}
+};
+
 export const getVersions = async (req, res) => {
 	try {
 		const versions = await prisma.dish.findMany({

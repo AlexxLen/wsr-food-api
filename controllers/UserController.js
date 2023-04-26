@@ -18,11 +18,11 @@ export const register = async (req, res) => {
 			},
 			'wsr-food',
 			{
-				expiresIn: '30d',
+				expiresIn: '7d',
 			},
 		);
 
-		res.status(201).json({ ...user, token });
+		res.status(201).json({ token });
 	} catch (err) {
 		res.status(500).json({
 			message: 'Ошибка!',
@@ -58,11 +58,11 @@ export const login = async (req, res) => {
 			},
 			'wsr-food',
 			{
-				expiresIn: '30d',
+				expiresIn: '7d',
 			},
 		);
 
-		res.status(201).json({ ...user, token });
+		res.status(201).json({ token });
 	} catch (err) {
 		res.status(500).json({
 			message: 'Ошибка!',
