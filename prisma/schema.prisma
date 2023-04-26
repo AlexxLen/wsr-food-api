@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Dish {
-  dish String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @id @default(auto()) @map("_id") @db.ObjectId
   category String
   name String
   price String
