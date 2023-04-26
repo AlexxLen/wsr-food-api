@@ -18,7 +18,7 @@ export const getDishesByVersion = async (req, res) => {
 				version: vers,
 			},
 		});
-		res.status(200).json(dishesByVersion);
+		res.status(200).json({ dishes: dishesByVersion });
 	} catch (err) {
 		res.status(500).json({ message: 'Ошибка' });
 	}
