@@ -37,7 +37,7 @@ export const getVersions = async (req, res) => {
 		});
 
 		const response = {
-			version: versions.map((vers) => vers.version),
+			versions: versions.map((vers) => vers.version),
 		};
 		console.log(versions);
 
